@@ -34,3 +34,17 @@ footer {
 nav span {
   margin: 0px 10px 0px 0px;
 }
+
+/* Ejercicio MiriadaX modulo6 */
+#authorLeft {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+#authorRight {
+  text-align: left;
+  display: inline-block;
+  /*width: 200px;*/
+  height: 100px;
+}
