@@ -1,7 +1,7 @@
 var path = require('path');
 
 //adaptamos modelo a despliegue en heroku
-var url = process.env.DATABASE_URL.match(/(.*))\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
+var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var DB_name   = (url[6]||null);
 var user      = (url[2]||null);
 var pwd       = (url[3]||null);
