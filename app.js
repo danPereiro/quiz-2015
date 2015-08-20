@@ -35,6 +35,23 @@ app.use(function(req, res, next) {
   next();
 });
 
+//interceptamos todo
+app.use('*', function(req, res, next) {
+  console.log("hemos entrado aqui")//do something
+  if (req.session.user) {
+    var ahora = new Date().toString()
+    var milisegundos = (new Date(ahora) - new Date(req.session.user.timeLastAction));
+    var minutos = Number(Math.round(((milisegundos % 86400000) % 3600000) / 60000));
+    console.log("fecha usuario = " + req.session.user.timeLastAction + "; fecha ahora = " +
+                ahora + "; minutos de diferencia = " + minutos + "; objeto req = " + req);
+    if (minutos >= 2) {
+      delete req.session.user;
+    } else {
+      req.session.user.timeLastAction = ahora;
+    }
+  }
+  next();
+});
 
 app.use('/', routes);
 
