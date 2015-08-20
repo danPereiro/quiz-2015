@@ -1,11 +1,15 @@
 <div>
   <ul>
   <% var i; for (i=0; i < quizes.length; i++) { %>
-    <li><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></li>
+    <li><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
+         &nbsp;
+         <a href="quizes/<%= quizes[i].id %>/edit"><button>Editar</button></a></li>
   <% } %>
   </ul>
 </div>
 
+<br/>
+<a href="/quizes/new"><button type="button">Crear pregunta</button></a>
 <br/>
 
 <form method="get" action="/quizes">
